@@ -62,13 +62,25 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // context.read<HomeBloc>().add(Increment());
-          BlocProvider.of<HomeBloc>(context).add(Increment());
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Row(
+        children: [
+            FloatingActionButton(
+            onPressed: () {
+               context.read<HomeBloc>().add(Decriment());
+              // BlocProvider.of<HomeBloc>(context).add(Increment());
+            },
+            tooltip: 'degriment',
+            child: const Icon(Icons.add),
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              // context.read<HomeBloc>().add(Increment());
+              BlocProvider.of<HomeBloc>(context).add(Increment());
+            },
+            tooltip: 'Increment',
+            child: const Icon(Icons.remove),
+          ),
+        ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
